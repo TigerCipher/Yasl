@@ -1,0 +1,4 @@
+*.exe
+*.tab.*
+lex.yy.c
+*.yasl

@@ -1,0 +1,60 @@
+<program> ::= <statement>*
+
+<statement> ::= <variable_declaration> | <function_declaration> | <struct_declaration> | <expression> | <comment>
+
+<variable_declaration> ::= "var" <identifier> [ "=" <expression> ] ";" 
+                         | "final" "var" <identifier> "=" <expression> ";"
+                         | "var" <identifier> "=" <array_literal> ";"
+
+<array_literal> ::= "[" [ <expression> { "," <expression> } ] "]"
+
+<function_declaration> ::= "func" <identifier> "(" [ <parameter_list> ] ")" <block>
+
+<parameter_list> ::= <identifier> { "," <identifier> }
+
+<struct_declaration> ::= "struct" <identifier> "{" <data_member_list> "}"
+
+<data_member_list> ::= <identifier> { "," <identifier> }
+
+<block> ::= "{" <statement>* "}"
+
+<expression> ::= <literal> 
+               | <identifier> 
+               | <function_call> 
+               | <struct_access> 
+               | <binary_operation>
+               | <unary_operation>
+
+<literal> ::= <number> | <string> | <boolean> | <array_literal>
+
+<function_call> ::= <identifier> "(" [ <argument_list> ] ")"
+
+<argument_list> ::= <expression> { "," <expression> }
+
+<struct_access> ::= <identifier> "." <identifier>
+
+<binary_operation> ::= <expression> <binary_operator> <expression>
+
+<unary_operation> ::= <unary_operator> <expression>
+
+<binary_operator> ::= "+" | "-" | "*" | "/" | "==" | "!=" | "<" | ">" | "<=" | ">=" | "&&" | "||"
+
+<unary_operator> ::= "-" | "!"
+
+<identifier> ::= <letter> { <letter> | <digit> | "_" }
+
+<number> ::= <digit> { <digit> } [ "." <digit> { <digit> } ]
+
+<string> ::= "\"" { <character> } "\""
+
+<boolean> ::= "true" | "false"
+
+<comment> ::= "//" { <character> }
+
+<letter> ::= "a" | "b" | "c" | ... | "z" | "A" | "B" | "C" | ... | "Z"
+
+<digit> ::= "0" | "1" | "2" | ... | "9"
+
+<character> ::= <letter> | <digit> | <symbol>
+
+<symbol> ::= "!" | "@" | "#" | "$" | "%" | "^" | "&" | "*" | "(" | ")" | "-" | "_" | "=" | "+" | "{" | "}" | "[" | "]" | "|" | "\\" | ":" | ";" | "\"" | "'" | "<" | ">" | "," | "." | "?" | "/" | " " | "\t" | "\n" | "\r"
